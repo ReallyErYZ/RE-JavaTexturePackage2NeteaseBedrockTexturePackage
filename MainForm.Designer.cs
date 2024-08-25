@@ -62,7 +62,7 @@ namespace RE_JavaTexturePackage2NBTP
             label1.Name = "label1";
             label1.Size = new Size(70, 17);
             label1.TabIndex = 3;
-            label1.Text = "Ver240519";
+            label1.Text = "Ver240825";
             // 
             // button1
             // 

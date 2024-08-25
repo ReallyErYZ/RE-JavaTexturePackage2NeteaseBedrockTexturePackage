@@ -15,11 +15,10 @@ namespace RE_JavaTexturePackage2NBTP.SDK
             if (!Directory.Exists(extractPath))
             {
                 Directory.CreateDirectory(extractPath);
-                ZipFile.ExtractToDirectory(zipFilePath, extractPath);
             }
-
             // 解压缩文件
-
+            // 新增强制覆盖
+            ZipFile.ExtractToDirectory(zipFilePath, extractPath,true);
         }
 
         public static bool IsValid(string zipFilePath)

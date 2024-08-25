@@ -12,11 +12,18 @@ namespace RE_JavaTexturePackage2NBTP
         [STAThread]
         static void Main()
         {
-            AllocConsole();
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            try
+            {
+                AllocConsole();
+                // To customize application configuration such as set high DPI settings or default font,
+                // see https://aka.ms/applicationconfiguration.
+                ApplicationConfiguration.Initialize();
+                Application.Run(new MainForm());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

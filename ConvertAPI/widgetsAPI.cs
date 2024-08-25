@@ -53,6 +53,17 @@ namespace RE_JavaTexturePackage2NBTP.ConvertAPI
                         {
                             smallImage.Save($"{BEUIFolder}/{s}", System.Drawing.Imaging.ImageFormat.Png);
                         }
+
+                        //新增一步最后处理
+                        if (File.Exists($"{BEUIFolder}/hotbar_end_cap.png"))
+                        {
+                            File.Delete($"{BEUIFolder}/hotbar_end_cap.png");
+                        }
+
+                        if (File.Exists($"{BEUIFolder}/hotbar_start_cap.png"))
+                        {
+                            File.Delete($"{BEUIFolder}/hotbar_start_cap.png");
+                        }
                     }
                 }
             }

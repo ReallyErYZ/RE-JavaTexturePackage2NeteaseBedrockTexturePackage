@@ -53,6 +53,10 @@ namespace RE_JavaTexturePackage2NBTP.SDK
             }
         }
 
+        public string McMetaPath => $"{TempPath}/pack.mcmeta";
+
+        public bool isVaildPackage => File.Exists(McMetaPath);
+
         public string STName //获取包类型
         {
             get
@@ -78,7 +82,10 @@ namespace RE_JavaTexturePackage2NBTP.SDK
             try
             {
                 ZipHelper.Extract(Path, TempPath);
-                packInfo = JsonConvert.DeserializeObject<PackInfo>(File.ReadAllText($"{TempPath}/pack.mcmeta"));
+
+                if (!isVaildPackage) return false;
+
+                packInfo = JsonConvert.DeserializeObject<PackInfo>(McMetaPath);
                 IsSound = Directory.Exists(SoundFolder);
                 IsTexture = Directory.Exists(TextureFolder);
                 Console.WriteLine($"[JavaPackage - Info] 成功解压{Utils.GetFileNameFromPath(Path)}");

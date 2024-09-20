@@ -85,7 +85,7 @@ namespace RE_JavaTexturePackage2NBTP.SDK
 
                 if (!isVaildPackage) return false;
 
-                packInfo = JsonConvert.DeserializeObject<PackInfo>(McMetaPath);
+                packInfo = JsonConvert.DeserializeObject<PackInfo>(File.ReadAllText(McMetaPath));
                 IsSound = Directory.Exists(SoundFolder);
                 IsTexture = Directory.Exists(TextureFolder);
                 Console.WriteLine($"[JavaPackage - Info] 成功解压{Utils.GetFileNameFromPath(Path)}");

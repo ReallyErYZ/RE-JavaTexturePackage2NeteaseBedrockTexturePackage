@@ -28,18 +28,18 @@ namespace RE_JavaTexturePackage2NBTP.ConvertAPI
                 using (Bitmap smallImage = icons.Clone(crosshairRect, icons.PixelFormat))
                 {
                     string s = "cross_hair.png";
-                    //for (int y = 0; y < smallImage.Height; y++)
-                    //{
-                    //    for (int x = 0; x < smallImage.Width; x++)
-                    //    {
-                    //        Color pixelColor = smallImage.GetPixel(x, y);
+                    for (int y = 0; y < smallImage.Height; y++)
+                    {
+                        for (int x = 0; x < smallImage.Width; x++)
+                        {
+                            Color pixelColor = smallImage.GetPixel(x, y);
 
-                    //        if (pixelColor.A == 0)
-                    //        {
-                    //            smallImage.SetPixel(x, y, Color.FromArgb(255, 255, 255, 0));
-                    //        }
-                    //    }
-                    //} //这个颜色调整导致了准心不透明
+                            if (pixelColor.A == 0)
+                            {
+                                smallImage.SetPixel(x, y, Color.FromArgb(0, 0, 0, 1));
+                            }
+                        }
+                    } //这个颜色调整导致了准心不透明 //但是其实只要你把颜色调为大黑特黑然后透明度1%就没这个情况
                     if (File.Exists($"{vanillaBase}/textures/ui/{s}"))
                     {
                         smallImage.Save($"{vanillaBase}/textures/ui/{s}", System.Drawing.Imaging.ImageFormat.Png);
